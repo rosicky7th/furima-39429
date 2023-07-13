@@ -20,7 +20,7 @@
 |-|-|-|
 | id(PK) | integer | null: false |
 | name | string | null: false |
-| descritption | text | null: false |
+| description | text | null: false |
 | price | integer | null: false |
 | category_id | integer | null: false |
 | condition_id | integer | null: false |
@@ -31,3 +31,31 @@
 
 ### Association
 - belongs_to :user
+- has_one :purchase
+
+## ordersテーブル
+
+|Column|Type|Options|
+| user_id | integer | null: false, foreign_key: true |
+| items_id | integer | null: false, foreign_key: true |
+| address | integer | null: false, foreign_key: true |
+
+
+### Association
+- belongs_to :item
+- has_one :address
+
+## addressesテーブル
+
+|Column|Type|Options|
+| postal_code | integer | null: false |
+| prefecture | strings | null: false |
+| city | integer | null: false |
+| house_number | integer | null: false |
+| building | strings | null: false |
+| phone_number | integer | null: false |
+
+
+
+### Association
+- belongs_to :order
