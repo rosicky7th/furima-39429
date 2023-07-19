@@ -14,6 +14,7 @@
 
 ### Association
 - has_many :items
+- has_many :orders
 
 ## itemsテーブル
 | Column | Type | Option |
@@ -31,7 +32,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 
 ## ordersテーブル
 
@@ -42,6 +43,7 @@
 
 
 ### Association
+- belongs_to :user
 - belongs_to :item
 - has_one :address
 
@@ -49,10 +51,10 @@
 
 |Column|Type|Options|
 | postal_code | integer | null: false |
-| prefecture | strings | null: false |
+| prefecture | string | null: false |
 | city | integer | null: false |
 | house_number | integer | null: false |
-| building | strings | null: false |
+| building | string | null: false |
 | phone_number | integer | null: false |
 
 
