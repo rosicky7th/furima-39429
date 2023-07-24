@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'new', status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      return redirect_to item_path(@item)
+      redirect_to item_path(@item)
     else
       render 'edit', status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      return redirect_to root_path
+      redirect_to root_path
     else
       render 'show', status: :unprocessable_entity
     end
@@ -64,14 +64,14 @@ class ItemsController < ApplicationController
   end
 
   def redirect_to_show
-    if current_user.id != @item.user.id
-      redirect_to root_path
-    end
+    return unless current_user.id != @item.user.id
+
+    redirect_to root_path
   end
 
   def ordered_item
-    if  @item.order.id !=nil && current_user.id == @item.user.id
-      redirect_to root_path
-    end
+    return unless !@item.order.id.nil? && current_user.id == @item.user.id
+
+    redirect_to root_path
   end
 end
