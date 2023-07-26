@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  console.log("OK")
   if ( document.getElementById('item-price')!= null) {
     const priceInput = document.getElementById("item-price");
     const addTaxDom = document.getElementById("add-tax-price");
