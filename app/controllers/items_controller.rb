@@ -70,7 +70,7 @@ class ItemsController < ApplicationController
   end
 
   def ordered_item
-    return unless !@item.order.id.nil? && current_user.id == @item.user.id
+    return unless !@item.order.blank? && current_user.id == @item.user.id
 
     redirect_to root_path
   end
